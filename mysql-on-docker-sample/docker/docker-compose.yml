@@ -9,7 +9,7 @@ services:
     environment:
       TZ: 'Asis/Tokyo'
     ports:
-      # 3306:3306だと接続に失敗する(理由不明)
+      # 3306:3306だと接続に失敗する(理由は、3306を別のプロセスが使ってる)
       - "3306:3306"
     env_file:
       - mysql/.env
