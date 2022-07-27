@@ -1,8 +1,7 @@
 # M1 Macは、platform指定がないとエラー
-FROM --platform=linux/x86_64 mysql:latest
+FROM --platform=linux/x86_64 mysql:5.7.38
 
-# https://hub.docker.com/_/mysql
-ENV MYSQL_DATABASE=mysql_db
-ENV MYSQL_USER=mysql_user
-ENV MYSQL_PASSWORD=PHOY8josh6bleb4megh
-ENV MYSQL_ROOT_PASSWORD=PHOY8josh6bleb4megh
+# DBのglobalな設定値を投入
+COPY ./conf.d/my.cnf /etc/mysql/conf.d/
+# 初期値としてのtableやcolumnを投入
+COPY ./initdb.d/* /docker-entrypoint-initdb.d/
