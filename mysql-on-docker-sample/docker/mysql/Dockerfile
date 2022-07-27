@@ -1,5 +1,5 @@
 # M1 Macは、platform指定がないとエラー
-FROM --platform=linux/x86_64 mysql:latest
+FROM --platform=linux/x86_64 mysql:5.7.38
 
 # https://hub.docker.com/_/mysql
 ENV MYSQL_DATABASE=db-mysql
